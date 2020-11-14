@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Конвертер валют-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="LoadVC" id="BYZ-38-t0r" customClass="LoadViewController" customModule="Converter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Udk-c5-oJt">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HzE-dD-ine">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Конвертер валют" id="n2W-yr-kxy"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Udk-c5-oJt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="LXT-yn-bmY"/>
+                            <constraint firstItem="Udk-c5-oJt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lVq-XC-aqZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Конвертер валют" id="mYv-rR-Z4y"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Udk-c5-oJt" id="Q1U-2b-ZUp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1021.7391304347827" y="88.392857142857139"/>
+        </scene>
+        <!--Конвертер валют-->
+        <scene sceneID="oTi-oG-oUQ">
+            <objects>
+                <viewController storyboardIdentifier="MainVC" id="PjN-AY-cwt" customClass="MainViewController" customModule="Converter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1K4-Lp-bWG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NDT-2m-pKs">
+                                <rect key="frame" x="40" y="128" width="334" height="263"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="p6w-Yj-LJg">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="263"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.0" placeholder="1.0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ma-Yz-0GH">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHE-AD-35u">
+                                                <rect key="frame" x="0.0" y="107" width="120" height="42"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="qNh-pl-Bhq">
+                                                <rect key="frame" x="0.0" y="223" width="120" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                <state key="normal" title="Изменить валюту"/>
+                                                <connections>
+                                                    <action selector="leftAction:" destination="PjN-AY-cwt" eventType="touchUpInside" id="FnZ-fs-Ebb"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="263" id="RXL-CA-cND"/>
+                                            <constraint firstAttribute="width" constant="120" id="du7-c6-270"/>
+                                        </constraints>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="skol2" translatesAutoresizingMaskIntoConstraints="NO" id="sog-km-RQ5">
+                                        <rect key="frame" x="127" y="101.5" width="80" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="EKP-Na-vDx"/>
+                                            <constraint firstAttribute="height" constant="60" id="huc-GS-t0F"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="jta-Ar-dAi">
+                                        <rect key="frame" x="214" y="0.0" width="120" height="263"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2.2" placeholder="30.0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NRP-NL-ZFH">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLa-1e-Glo">
+                                                <rect key="frame" x="0.0" y="107" width="120" height="42"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="crk-BA-hut">
+                                                <rect key="frame" x="0.0" y="223" width="120" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                <state key="normal" title="Изменить валюту"/>
+                                                <connections>
+                                                    <action selector="rightAction:" destination="PjN-AY-cwt" eventType="touchUpInside" id="DIB-T4-6h0"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="BKv-eW-2vI"/>
+                                            <constraint firstAttribute="height" constant="263" id="vdg-Gc-c1L"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="93B-oM-Syq">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Конвертер валют" id="S03-IX-yx2"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7S7-ZO-skk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="93B-oM-Syq" secondAttribute="trailing" id="3DQ-eb-QzQ"/>
+                            <constraint firstItem="93B-oM-Syq" firstAttribute="top" secondItem="7S7-ZO-skk" secondAttribute="top" id="9UL-6b-sYv"/>
+                            <constraint firstItem="NDT-2m-pKs" firstAttribute="leading" secondItem="7S7-ZO-skk" secondAttribute="leading" constant="40" id="ERc-zn-fqK"/>
+                            <constraint firstItem="NDT-2m-pKs" firstAttribute="top" secondItem="93B-oM-Syq" secondAttribute="bottom" constant="40" id="dlU-MX-MNW"/>
+                            <constraint firstItem="93B-oM-Syq" firstAttribute="leading" secondItem="7S7-ZO-skk" secondAttribute="leading" id="giQ-tg-t1V"/>
+                            <constraint firstAttribute="trailing" secondItem="NDT-2m-pKs" secondAttribute="trailing" constant="40" id="rQU-W7-Pn5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Конвертер валют" id="4Do-Ty-wmn"/>
+                    <connections>
+                        <outlet property="leftButton" destination="qNh-pl-Bhq" id="w6r-5N-E23"/>
+                        <outlet property="leftLabel" destination="aHE-AD-35u" id="O4z-sI-2TU"/>
+                        <outlet property="leftTextField" destination="2ma-Yz-0GH" id="XmM-ad-T2P"/>
+                        <outlet property="rightButton" destination="crk-BA-hut" id="O8m-yw-3LD"/>
+                        <outlet property="rightLabel" destination="QLa-1e-Glo" id="0m1-DK-2gb"/>
+                        <outlet property="rightTextField" destination="NRP-NL-ZFH" id="2Ri-5K-Ngm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RPL-L4-jbw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1905.7971014492755" y="87.723214285714278"/>
+        </scene>
+        <!--Выбор валют-->
+        <scene sceneID="C4P-Nd-n8K">
+            <objects>
+                <viewController storyboardIdentifier="changeCurrencyVC" id="68O-Mr-mOK" customClass="ChangeCurrencyViewController" customModule="Converter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E4R-f6-0IG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nn0-XZ-hQt">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Выбор валюты" id="coU-M7-aVL">
+                                        <barButtonItem key="rightBarButtonItem" title="Отмена" id="Lxt-BZ-3z0">
+                                            <connections>
+                                                <action selector="cancelAction:" destination="68O-Mr-mOK" id="hRm-S0-Ilg"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dBv-TK-1mA">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5hw-iH-1L1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Nn0-XZ-hQt" firstAttribute="top" secondItem="5hw-iH-1L1" secondAttribute="top" id="2v7-Os-Qdr"/>
+                            <constraint firstItem="Nn0-XZ-hQt" firstAttribute="leading" secondItem="5hw-iH-1L1" secondAttribute="leading" id="Nrg-BS-oDC"/>
+                            <constraint firstAttribute="bottom" secondItem="dBv-TK-1mA" secondAttribute="bottom" id="e7r-6F-pEp"/>
+                            <constraint firstItem="dBv-TK-1mA" firstAttribute="trailing" secondItem="5hw-iH-1L1" secondAttribute="trailing" id="pB3-7L-Exw"/>
+                            <constraint firstItem="dBv-TK-1mA" firstAttribute="top" secondItem="Nn0-XZ-hQt" secondAttribute="bottom" id="qVk-BZ-k0x"/>
+                            <constraint firstItem="dBv-TK-1mA" firstAttribute="leading" secondItem="5hw-iH-1L1" secondAttribute="leading" id="vu9-sg-8nh"/>
+                            <constraint firstItem="Nn0-XZ-hQt" firstAttribute="trailing" secondItem="5hw-iH-1L1" secondAttribute="trailing" id="xyJ-ZO-kPk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Выбор валют" id="QaU-f1-3dE"/>
+                    <connections>
+                        <outlet property="tableView" destination="dBv-TK-1mA" id="80d-Kk-ICH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BG1-GM-s4D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2715.9420289855075" y="90.401785714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="skol2" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
