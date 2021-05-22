@@ -10,43 +10,30 @@ import UIKit
 class LoadViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    var networkManager = NetworkManager()
+    private var viewModel = LoadViewModel()
     
     override func viewDidLoad() {
-        getModels()
-    }
-    
-    private func getModels() {
+        setupBinding()
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
-        networkManager.fetchData { (response, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                self.stopLoading()
-                return
+        viewModel.getModels()
+    }
+}
+
+private extension LoadViewController {
+    
+    func setupBinding() {
+        viewModel.complitionSuccess = { model in
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                let vc = Builder.getMainVC(model: model)
+                self.present(vc, animated: true, completion: nil)
             }
-            guard let response = response else {
-                self.stopLoading()
-                return
+        }
+        viewModel.complitionFailure = {
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
             }
-            self.presentMainVC(with: response)
         }
     }
-    
-    private func presentMainVC(with model: ResponseModel) {
-        DispatchQueue.main.async {
-            self.activityIndicator.stopAnimating()
-            let vc = Builder.getMainVC(model: model)
-            self.present(vc, animated: true, completion: nil)
-        }
-    }
-    
-    private func stopLoading() {
-        DispatchQueue.main.async {
-            self.activityIndicator.stopAnimating()
-        }
-    }
-    
-    
-    
 }

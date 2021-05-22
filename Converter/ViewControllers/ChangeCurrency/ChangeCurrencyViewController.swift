@@ -12,7 +12,7 @@ enum ChangeType {
     case right
 }
 
-protocol ChangeCurrencyDelegate: class {
+protocol ChangeCurrencyDelegate: AnyObject {
     func update(type: ChangeType, item: Currency)
 }
 
@@ -59,7 +59,5 @@ extension ChangeCurrencyViewController: UITableViewDelegate, UITableViewDataSour
         delegate?.update(type: viewModel.changeSide, item: item)
         dismiss(animated: true, completion: nil)
     }
-    
-    
 }
 

@@ -36,8 +36,5 @@ class Builder {
         vc.viewModel = viewModel
         
         return vc
-        
     }
-    
-    
 }

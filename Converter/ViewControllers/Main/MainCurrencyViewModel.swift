@@ -22,7 +22,6 @@ protocol MainCurrencyViewModelProtocol {
     var selectingBind: ((MainCurrencyViewModel) -> ())? { set get }
     var changeValueBindForLeft: ((String) -> ())? { set get }
     var changeValueBindForRight: ((String) -> ())? { set get }
-    
 }
 
 class MainCurrencyViewModel: MainCurrencyViewModelProtocol {
@@ -52,35 +51,6 @@ class MainCurrencyViewModel: MainCurrencyViewModelProtocol {
         }
     }
     
-    required init(models: [String:Currency],selectedLeft: Currency,selectedRight: Currency, leftValue: String, rightValue: String) {
-        self.models = models
-        self.selectedLeft = selectedLeft
-        self.selectedRight = selectedRight
-        self.leftValue = leftValue
-        self.rightValue = rightValue
-    }
-    
-    func getModels() -> [String:Currency] {
-        return models
-    }
-    
-    private func calculate(x: Currency, y: Currency, nominal: String) -> String {
-        guard let X = Double(x.value) else { return "ошибка" }
-        guard let Y = Double(y.value) else { return "ошибка" }
-        guard let nominal = Double(nominal) else { return "ошибка" }
-        let result = (X / Y) * nominal * (Double(y.nominal)) / (Double(x.nominal))
-        
-        return String(format: "%.3f",result)
-    }
-    
-    func calculateForRight(nominal:String) -> String {
-        return calculate(x: selectedLeft, y: selectedRight, nominal: nominal)
-    }
-    
-    func calculateForLeft(nominal:String) -> String {
-        return calculate(x: selectedRight, y: selectedLeft, nominal: nominal)
-    }
-    
     var selectingBind: ((MainCurrencyViewModel) -> ())? {
         didSet {
             selectingBind?(self)
@@ -94,4 +64,33 @@ class MainCurrencyViewModel: MainCurrencyViewModelProtocol {
         }
     }
     var changeValueBindForRight: ((String) -> ())?
+    
+    required init(models: [String: Currency], selectedLeft: Currency, selectedRight: Currency, leftValue: String, rightValue: String) {
+        self.models = models
+        self.selectedLeft = selectedLeft
+        self.selectedRight = selectedRight
+        self.leftValue = leftValue
+        self.rightValue = rightValue
+    }
+    
+    func getModels() -> [String: Currency] {
+        return models
+    }
+    
+    private func calculate(x: Currency, y: Currency, nominal: String) -> String {
+        guard let X = Double(x.value) else { return "ошибка" }
+        guard let Y = Double(y.value) else { return "ошибка" }
+        guard let nominal = Double(nominal) else { return "ошибка" }
+        let result = (X / Y) * nominal * (Double(y.nominal)) / (Double(x.nominal))
+        
+        return String(format: "%.3f",result)
+    }
+    
+    func calculateForRight(nominal: String) -> String {
+        return calculate(x: selectedLeft, y: selectedRight, nominal: nominal)
+    }
+    
+    func calculateForLeft(nominal: String) -> String {
+        return calculate(x: selectedRight, y: selectedLeft, nominal: nominal)
+    }
 }

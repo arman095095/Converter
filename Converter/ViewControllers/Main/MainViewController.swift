@@ -20,25 +20,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         setupViews()
-        viewModel.selectingBind = { vModel in
-            self.leftLabel.text = vModel.selectedLeft.name
-            self.rightLabel.text = vModel.selectedRight.name
-            self.rightTextField.text = vModel.calculateForRight(nominal: self.leftTextField.text!)
-        }
-        viewModel.changeValueBindForLeft = { value in
-            self.rightTextField.text = value
-        }
-        viewModel.changeValueBindForRight = { value in
-            self.leftTextField.text = value
-        }
-    }
-    
-    private func setupViews() {
-        rightButton.titleLabel?.textAlignment = .center
-        leftButton.titleLabel?.textAlignment = .center
-        
-        leftTextField.addTarget(self, action: #selector(textChangeInLeft), for: .editingChanged)
-        rightTextField.addTarget(self, action: #selector(textChangeInRight), for: .editingChanged)
+        setupBinding()
     }
     
     @objc private func textChangeInLeft() {
@@ -50,7 +32,6 @@ class MainViewController: UIViewController {
         guard let nominal = self.rightTextField.text else { return }
         self.viewModel.rightValue = nominal
     }
-    
     
     @IBAction func leftAction(_ sender: Any) {
         let vc = Builder.getChangeCurrencyVC(delegate: self, type: .left, models: viewModel.getModels(),selectedItem: viewModel.selectedLeft)
@@ -70,6 +51,31 @@ extension MainViewController: ChangeCurrencyDelegate {
         case .right:
             self.viewModel.selectedRight = item
         }
+    }
+}
+
+private extension MainViewController {
+    
+    func setupBinding() {
+        viewModel.selectingBind = { vModel in
+            self.leftLabel.text = vModel.selectedLeft.name
+            self.rightLabel.text = vModel.selectedRight.name
+            self.rightTextField.text = vModel.calculateForRight(nominal: self.leftTextField.text!)
+        }
+        viewModel.changeValueBindForLeft = { value in
+            self.rightTextField.text = value
+        }
+        viewModel.changeValueBindForRight = { value in
+            self.leftTextField.text = value
+        }
+    }
+    
+    func setupViews() {
+        rightButton.titleLabel?.textAlignment = .center
+        leftButton.titleLabel?.textAlignment = .center
+        
+        leftTextField.addTarget(self, action: #selector(textChangeInLeft), for: .editingChanged)
+        rightTextField.addTarget(self, action: #selector(textChangeInRight), for: .editingChanged)
     }
 }
 

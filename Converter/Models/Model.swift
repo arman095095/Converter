@@ -29,7 +29,7 @@ struct CurrencyModel: Currency, CurrencyModelType {
     var description: String
     var nominal: Int
     
-    static func getDictModels(from dict:[String:Valute]) -> [String:CurrencyModel] {
+    static func getDictModels(from dict: [String:Valute]) -> [String:CurrencyModel] {
         var currencyModels = [String:CurrencyModel]()
         for (key,valute) in dict {
             let model = CurrencyModel(valute: valute)
@@ -42,6 +42,6 @@ struct CurrencyModel: Currency, CurrencyModelType {
 
 extension CurrencyModel {
     init(valute: Valute) {
-        self.init(value: String(valute.Value), name: valute.CharCode, description: valute.Name,nominal : valute.Nominal)
+        self.init(value: String(valute.Value), name: valute.CharCode, description: valute.Name, nominal: valute.Nominal)
     }
 }
